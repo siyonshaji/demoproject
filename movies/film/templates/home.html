@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<h1>movies</h1>
+
+
+<div class="container">
+
+  <div class="row">
+    {% for i in movie %}
+    <div class="col-lg-4 p-3">
+      <div class="card" style="width: 18rem;">
+
+        <img src="{{i.image.url}}" class="card-img-top" height="200px" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">{{i.name}}</h5>
+          <p class="card-text">{{i.description}}</p>
+          <a href="{% url 'movie:viewbyid' i.id %}" class="btn btn-primary">click</a>
+        </div>
+      </div>
+    </div>
+
+    {% endfor %}
+
+  </div>
+
+
+</div>
+
+
+{% endblock %}

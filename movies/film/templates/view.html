@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<h1>movie list</h1>
+<table class="table table-hover">
+    <tr class="table-secondary">
+        <th>COVER</th>
+        <td><img src="{{m.image.url}}" style="height:200px"></td>
+    </tr>
+    <tr>
+        <th>name</th>
+        <td>{{m.name}}</td>
+    </tr>
+    <tr>
+        <th>description</th>
+        <td>{{m.description}}</td>
+    </tr>
+    <tr>
+        <th>year</th>
+        <td>{{m.year}}</td>
+
+    </tr>
+
+</table>
+<a class="btn btn-danger" href="{% url 'movie:editbyid' m.id %}">update</a>
+<a class="btn btn-danger" href="{% url 'movie:deletebyid' m.id %}">delete</a>
+{% endblock %}
+
